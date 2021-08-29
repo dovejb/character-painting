@@ -1,8 +1,8 @@
 package painter
 
 import (
-	"character-painting/resource"
 	"fmt"
+	"github.com/dovejb/character-painting/resource"
 	"math/rand"
 	"strings"
 	"time"
