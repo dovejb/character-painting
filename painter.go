@@ -1,4 +1,4 @@
-package painter
+package painting
 
 import (
 	"fmt"
