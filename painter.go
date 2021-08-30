@@ -1,11 +1,13 @@
 package painting
 
 import (
+	"bytes"
 	"fmt"
-	"github.com/dovejb/character-painting/resource"
 	"math/rand"
 	"strings"
 	"time"
+
+	"github.com/dovejb/character-painting/resource"
 )
 
 var (
@@ -252,6 +254,32 @@ func Repeating(c rune, n int) string {
 		s[i] = c
 	}
 	return string(s)
+}
+
+func (p Painter) Join(char byte, in ...[]string) []string {
+	if len(in) == 0 {
+		return nil
+	}
+	h := p.H
+	cs := p.String(string([]byte{char}))
+	bs := make([]bytes.Buffer, h)
+	for i := range in {
+		for j := 0; j < h; j++ {
+			bs[j].WriteString(in[i][j])
+			if i != len(in)-1 {
+				bs[j].WriteString(cs[j])
+			}
+		}
+	}
+	ss := make([]string, h)
+	for i := range ss {
+		ss[i] = bs[i].String()
+	}
+	return ss
+}
+
+func Join(char byte, in ...[]string) []string {
+	return NewPainter(font).Join(char, in...)
 }
 
 func init() {
