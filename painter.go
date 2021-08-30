@@ -282,6 +282,13 @@ func Join(joint string, in ...[]string) []string {
 	return NewPainter(font).Join(joint, in...)
 }
 
+func Print(ss ...[]string) {
+	s := Join(" ", ss...)
+	for i := range s {
+		fmt.Println(s[i])
+	}
+}
+
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }

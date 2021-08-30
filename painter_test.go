@@ -52,3 +52,8 @@ func TestJoin(t *testing.T) {
 		t.Log(ss[i])
 	}
 }
+
+func TestPrint(t *testing.T) {
+	Print(String("hello"), String("world"))
+	Print(Rainbow("dovejb"))
+}
