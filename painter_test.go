@@ -47,7 +47,7 @@ func TestColorLoop(t *testing.T) {
 func TestJoin(t *testing.T) {
 	s1 := String("hello")
 	s2 := String("world")
-	ss := Join(',', s1, s2)
+	ss := Join(",", s1, s2)
 	for i := range ss {
 		t.Log(ss[i])
 	}

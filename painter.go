@@ -256,12 +256,12 @@ func Repeating(c rune, n int) string {
 	return string(s)
 }
 
-func (p Painter) Join(char byte, in ...[]string) []string {
+func (p Painter) Join(joint string, in ...[]string) []string {
 	if len(in) == 0 {
 		return nil
 	}
 	h := p.H
-	cs := p.String(string([]byte{char}))
+	cs := p.String(joint)
 	bs := make([]bytes.Buffer, h)
 	for i := range in {
 		for j := 0; j < h; j++ {
@@ -278,8 +278,8 @@ func (p Painter) Join(char byte, in ...[]string) []string {
 	return ss
 }
 
-func Join(char byte, in ...[]string) []string {
-	return NewPainter(font).Join(char, in...)
+func Join(joint string, in ...[]string) []string {
+	return NewPainter(font).Join(joint, in...)
 }
 
 func init() {
